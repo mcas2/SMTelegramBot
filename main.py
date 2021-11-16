@@ -1,14 +1,10 @@
-from telegram import Update
-from telegram.ext import *
-import logging
+import requests
+base_url = "https://api.telegram.org/bot2126630484:AAE7_wKynuJiO7HXkvSh1tzogiCClzkOg-g/getUpdates"
 
-updater = Updater(token='2126630484:AAE7_wKynuJiO7HXkvSh1tzogiCClzkOg-g')
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+final_update = {
+    "limit" : "1"
+}
 
-def start(update: Update, context: CallbackContext):
-    context.bot.sendMessage(chat_id=update.effective_chat.id,
-                            text='¡Sólo monos!')
+res = requests.get(base_url, data = final_update)
+print(res.text)
 
-start_handler = CommandHandler('start', start)
-updater.dispatcher.add_handler(start_handler)
-updater.start_polling()
