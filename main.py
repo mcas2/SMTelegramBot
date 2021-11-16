@@ -1,5 +1,5 @@
 import requests
-base_url = "https://api.telegram.org/bot2126630484:AAE7_wKynuJiO7HXkvSh1tzogiCClzkOg-g/getUpdates"
+base_url = "token"
 
 final_update = {
     "limit" : "1"
